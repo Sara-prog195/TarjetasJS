@@ -102,11 +102,15 @@ En este ejercicio es necesario también darle estilo a la letra tanto en color c
 			var pTexto = document.getElementById("descripcionTxt").value;
 				document.getElementById("descripcion").innerHTML=pTexto;
 			//Nombre de la persona
+			//("Para:  " +nom;) Cuando se genere la tarjeta aparecera con el Para:
 			var nom = document.getElementById("nameTxt").value;
-				document.getElementById("name").innerHTML=nom;
+				document.getElementById("name").innerHTML="Para:  " +nom;
 			//Fecha
 			var fec = document.getElementById("fechaTxt").value;
-				document.getElementById("fecha").innerHTML=fec;
+				document.getElementById("fecha").innerHTML="Fecha:  " +fec;
+			//Autor
+			var auto = document.getElementById("autorTxt").value;
+				document.getElementById("autor").innerHTML="Autor: " +auto;
 
 			//Insertar Color de texto
 			//Asignando a que texto se le dara color elegido 
@@ -124,6 +128,9 @@ En este ejercicio es necesario también darle estilo a la letra tanto en color c
 
 			var c = document.getElementById("colorTxt").value;
 				document.getElementById("fecha").style.color=c;
+
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("autor").style.color=c;
 
 			//Tamaño de texto 
 			//Asignando a que variable se le dara el tamaño
@@ -189,6 +196,12 @@ En este ejercicio es necesario también darle estilo a la letra tanto en color c
 		<h2>Agrega la fecha</h2>
 			<label for="fechaTxt">(month and year):</label>
 	  		<input type="month" id="fechaTxt">
+	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Creado Por:</h2>
+	<br>
+			<input type="texto" id="autorTxt" placeholder="Autor">
+  	<br>
   	<br>
 		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
 		<h2>Formato del Texto(Letra)</h2>
@@ -236,6 +249,7 @@ En este ejercicio es necesario también darle estilo a la letra tanto en color c
 		<h2 id="descripcion"></h2>
 		<h2 id="name"></h2>
 		<h2 id="fecha"></h2>
+		<h2 id="autor"></h2>
 	</article>
 </body>
 </html>
