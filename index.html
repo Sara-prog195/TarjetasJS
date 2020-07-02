@@ -1,0 +1,241 @@
+<!--
+Ejercicio de Agregar elementos consecutivos en una lista
+Cambiar el color de un borde y el tipo de borde de una imagen.
+Crear una página web en la que el usuario elija el tipo de felicitación que desea hacer, San Valentin, Cumpleaños, Motivación.  Después elegir la imagen que se colocará.  Posteriormente se captura el nombre de la persona a felicitar, el titulo y subtitulo de la tarjeta, el mensaje completo y el nombre de la persona que desea mandar la felicitación.  
+Finalmente elegir el color de fondo que se desea para la página.  
+En este ejercicio es necesario también darle estilo a la letra tanto en color como tamaño y tipo; Este estilo debe cambiar de acuerdo con el tipo de tarjeta que se solicite.  De igual manera es necesario colocar una canción de fondo en la tarjeta final. 
+--> 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Tarjetas de Felicitación</title>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/style2.css"></link>
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pangolin&family=Yellowtail&display=swap" rel="stylesheet">
+	<script>
+		function cambiarTamanoEjemplo(){
+			var tam=document.getElementById("tamanoTxt").value
+			//alert(tam);
+			document.getElementById("ejemploTxt").style.fontSize=tam+"em"; //em=Unidad de medida para puntos especificamente para textos 
+		}
+		function cambiarColor2(codigo){
+			//Todo el documento .bgcolor (color de referencia del html) 
+			switch(codigo){
+				case 'blanco':
+					document.bgColor='ffffff'; //Cambia el color a blanco 
+					document.getElementById('blanco').src='images/eye-icon.png';
+					resetColor(codigo);
+					break;
+				case 'morado':
+					document.bgColor='ff80ff'; //Cambia el color a morado claro
+					document.getElementById('morado').src='images/eye-icon.png';
+					resetColor(codigo);
+					break;
+				case 'turquesa':
+					document.bgColor='009999'; //Cambia el color a azul turquesa
+					document.getElementById('turquesa').src='images/eye-icon.png';
+					resetColor(codigo);
+					break;
+				case 'rosa':
+					document.bgColor='ff5050'; //Cambia el color a rosa fresa 
+					document.getElementById('rosa').src='images/eye-icon.png';
+					resetColor(codigo);
+					break;
+				case 'verdeC':
+					document.bgColor='b3ffb3'; //Cambia el color verde pasto claro 
+					document.getElementById('verdeC').src='images/eye-icon.png';
+					resetColor(codigo);
+					break;
+					
+			}
+		}
+		//funcion reset eliminara el icono cuando se ponga el cursor encima de otro color
+		function resetColor(color){
+			if(color!='blanco')
+				document.getElementById('blanco').src='images/white.gif';
+			if(color!='morado')
+				document.getElementById('morado').src='images/purple.gif';
+			if(color!='turquesa')
+				document.getElementById('turquesa').src='images/turquesa.png';
+			if(color!='rosa')
+				document.getElementById('rosa').src='images/rosa.png';
+			if(color!='verdeC')
+				document.getElementById('verdeC').src='images/verdeC.png';
+		}
+
+		function generarTarjeta(){
+			//Muestra la nueva pagina con los datos 
+			document.getElementById("tarjeta").style.display='block';
+			//Validar cual imagen es la elegida
+			var fondo;
+			if(document.getElementById('tipoImg1').checked)
+				fondo=document.getElementById('tipoImg1').value;
+			else if (document.getElementById('tipoImg2').checked)
+				fondo=document.getElementById('tipoImg2').value;
+			else
+				fondo=document.getElementById('tipoImg3').value;
+
+			//Agregamos el fondo de la tarjeta 
+			document.getElementById("tarjeta").style.backgroundImage="url('"+fondo+"')";
+			document.getElementById("tarjeta").style.backgroundRepeat="no-repeat";
+ 		
+			//Validar cual tipografia es la elegida
+			var tipo;
+			if(document.getElementById('tipoTxt1').checked)
+				tipo=document.getElementById('tipoTxt1').value;
+			else if (document.getElementById('tipoTxt2').checked)
+				tipo=document.getElementById('tipoTxt2').value;
+			else
+				tipo=document.getElementById('tipoTxt3').value;
+		
+			//Insertar textos
+			//Esta variables guardan lo que el ususario inserta en el formulario
+			var titu = document.getElementById("tituloTxt").value;
+				document.getElementById("titulo").innerHTML=titu;
+			//Subtitulo
+			var subti = document.getElementById("subtituloTxt").value;
+				document.getElementById("subtitulo").innerHTML=subti;
+			//Texto descripcion
+			var pTexto = document.getElementById("descripcionTxt").value;
+				document.getElementById("descripcion").innerHTML=pTexto;
+			//Nombre de la persona
+			var nom = document.getElementById("nameTxt").value;
+				document.getElementById("name").innerHTML=nom;
+			//Fecha
+			var fec = document.getElementById("fechaTxt").value;
+				document.getElementById("fecha").innerHTML=fec;
+
+			//Insertar Color de texto
+			//Asignando a que texto se le dara color elegido 
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("titulo").style.color=c;
+
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("subtitulo").style.color=c;
+
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("descripcion").style.color=c;
+
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("name").style.color=c;
+
+			var c = document.getElementById("colorTxt").value;
+				document.getElementById("fecha").style.color=c;
+
+			//Tamaño de texto 
+			//Asignando a que variable se le dara el tamaño
+			var tam = document.getElementById("tamanoTxt").value;
+				document.getElementById("titulo").style.fontSize=tam+"em";
+
+			//Asignar la tipografia
+			document.getElementById("titulo").style.fontFamily=tipo; 
+			document.getElementById("subtitulo").style.fontFamily=tipo; 
+			document.getElementById("descripcion").style.fontFamily=tipo;
+
+			//Ocultar la zona de la configuración al momento de dar click en el botón Generar
+			document.getElementById("contenido").style.display='none';
+
+		}
+	</script>
+</head>
+<body bgcolor="#b3b3cc">
+	<article id="contenido">
+		<h1>Crea tu tarjeta de Felicitación</h1>
+	<br>
+	<br>
+		<img id="icono2" src="images/blackHeart-icon.png" height="40" width="40">
+		<h2>Elige un Tema</h2>
+			<input type="radio" name="musica" >San Valentin
+			<input type="radio" name="musica" >Feliz Cumpleaños
+			<input type="radio" name="musica" >Motivación
+	<br>
+	<br>
+		<img id="icono2" src="images/camera-icon.png" height="40" width="40">
+		<h2>Elige una Imagen</h2>
+			<input type="radio" name="tipoImg" id="tipoImg1" checked value="images/SanValentin.jpg">
+			<!--checked es para que se seleccione la img-->
+				<img src="images/SanValentin.jpg" height="150" width="150">
+			<input type="radio" name="tipoImg" id="tipoImg2" checked value="images/felizCumpleaños.jpg">
+				<img src="images/felizCumpleaños.jpg" height="150" width="150">
+			<input type="radio" name="tipoImg" id="tipoImg3" checked value="images/Motivation.jpg">
+				<img src="images/Motivation.jpg" height="150" width="150">
+	<br>
+	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Agrega un Título</h2>
+	<br>
+			<input type="texto" id="tituloTxt" placeholder="Titulo de la tarjeta">
+	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Agrega un Subtítulo</h2>
+	<br>
+			<input type="texto" id="subtituloTxt" placeholder="Subtitulo de la tarjeta">
+	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Agrega una descripción</h2>
+	<br>
+			<textarea id="descripcionTxt" cols="30" rows="5" placeholder="Texto emotivo!!!"></textarea>
+	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Agrega Nombre</h2>
+	<br>
+			<input type="texto" id="nameTxt" placeholder="Nombre de la persona">
+	<br>
+	<br>
+		<img id="icono2" src="images/calendar-icon.png" height="40" width="40">
+		<h2>Agrega la fecha</h2>
+			<label for="fechaTxt">(month and year):</label>
+	  		<input type="month" id="fechaTxt">
+  	<br>
+		<img id="icono2" src="images/pencil-icon.png" height="40" width="40">
+		<h2>Formato del Texto(Letra)</h2>
+	<br>
+			<img id="icono3" src="images/paintPot-icon.png" height="20" width="20">
+				<label for="colorTxt">Color:</label>
+			<input type="color" id="colorTxt"> <br>
+				<label for="tamanoTxt">Tamaño de letra(Título): </label>
+			<input type="range" id="tamanoTxt" min="1" max="5" onchange="cambiarTamanoEjemplo()">
+				<label id="ejemploTxt">Ejemplo</label> <!--range= control deslizante + el rango-->
+		<br>
+		<br>
+			<label>Tipografías:</label>
+		<br>
+			<input type="radio" name="tipoTxt" id="tipoTxt1" checked value="Indie Flower">
+				<label id="tipo1">Hola!</label>
+			<input type="radio" name="tipoTxt" id="tipoTxt2" checked value="Yellowtail">
+				<label id="tipo2">Hola!</label>
+			<input type="radio" name="tipoTxt" id="tipoTxt3" checked value="Pangolin">
+				<label id="tipo3">Hola!</label>
+		<br>
+			<img id="icono2" src="images/paintPot-icon.png" height="40" width="40">
+			<h2>Selecciona el color de la página</h2>
+		<br>
+			<a onmouseover="cambiarColor2('blanco')">
+				<img id="blanco" src="images/white.gif" height="40" width="40"></a>
+			<a onmouseover="cambiarColor2('morado')">
+				<img id="morado" src="images/purple.gif" height="40" width="40"></a>
+			<a onmouseover="cambiarColor2('turquesa')">
+				<img id="turquesa" src="images/turquesa.png" height="40" width="40"></a>
+			<a onmouseover="cambiarColor2('rosa')">
+				<img id="rosa" src="images/rosa.png" height="40" width="40"></a>
+			<a onmouseover="cambiarColor2('verdeC')">
+				<img id="verdeC" src="images/verdeC.png" height="40" width="40"></a>
+		<br>
+		<br>
+			<div align="center"><img src="images/GoodTick-icon.png" onclick="generarTarjeta()" width="40" height="40"></div>
+		<br>
+		<br>
+	</article>
+
+	<article id="tarjeta"> <!--Aqui se imprime todo lo que el usuario va a configurar-->
+		<h1 id="titulo"></h1>
+		<h1 id="subtitulo"></h1>
+		<h2 id="descripcion"></h2>
+		<h2 id="name"></h2>
+		<h2 id="fecha"></h2>
+	</article>
+</body>
+</html>
