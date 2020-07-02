@@ -1,0 +1,92 @@
+/*Selector Universal es un asterisco 
+que signica que todo el html(contenido) se le va agregar el estilo por default*/
+*{margin: 0; padding: 0;}
+/*
+font-family: 'Indie Flower', cursive; (Valentin)
+font-family: 'Yellowtail', cursive;   (Happy Boithrday)
+font-family: 'Pangolin', cursive;     (Motivacion)
+*/
+#tipo1{font-family: 'Indie Flower', cursive; font-size: 2em;}
+#tipo2{font-family: 'Yellowtail', cursive; font-size: 2em;}
+#tipo3{font-family: 'Pangolin', cursive; font-size: 2em;}
+
+#tarjeta{
+	width: 30% ;
+	height: auto;
+	min-height: 500px;
+	display: none;
+	margin: 350px; /* auto para centrar el menÃº*/
+	background: #fff;
+	border: 10% solid #ddd;
+	padding: 20px 5%;
+	border-radius: 50px; /*sirve para dar esquinas redondeadas en el menÃº*/ 
+	-moz- border-radius:50px; /*mozila*/
+	-webkit- border-radius:50px; /*chrome*/
+}
+body{
+	font:12px Monaco, Monospace;
+	/*background: #eee;*/
+
+}
+#contenido{
+	width: 60% ;
+	height: auto;
+	display: block;
+	margin: 80px auto; /* auto para centrar el menÃº*/
+	background: #fff; /*Color de fondo del contenido*/
+	border: 10% solid #ddd;
+	padding: 20px 5%;
+	border-radius: 50px; /*sirve para dar esquinas redondeadas en el menÃº*/ 
+	-moz- border-radius:50px; /*mozila*/
+	-webkit- border-radius:50px; /*chrome*/
+	
+	-webkit-box-shadow: 79px -18px 14px -13px rgba(0,0,0,0.55);
+	-moz-box-shadow: 79px -18px 14px -13px rgba(0,0,0,0.55);
+	box-shadow: 79px -18px 14px -13px rgba(0,0,0,0.55);
+}
+h1{
+	font-size: 40px;
+	padding: 0 0 10px;
+	color: #0073e6; /*#00e6e6*/ 
+	border-bottom: 2px solid  #ddd; /*lÃ¬nea debajo del h1 #ddd es gris*/
+	font-family: 'Baloo 2', cursive;
+	text-align: center;
+}
+h2{
+	font-size: 18px;
+	font-family: 'Baloo 2', cursive;
+	padding: 10px 0;
+	color: #5c8a8a;
+}
+label{
+	font-size: 18px;
+	font-family: 'Baloo 2', cursive;
+	color: #5c8a8a;
+}
+/*Aliniacion del texto que se coloco con el Placeholder*/
+#tituloTxt{ 
+	text-align: center;
+}
+#subtituloTxt{
+	text-align: center;
+}
+#nameTxt{
+	text-align: center;
+}
+#descripcionTxt{
+	text-align: center;
+}
+}
+/*Iconos agregados*/
+#icono1{
+	float: left;
+}
+#icono2{
+	float: left;
+}
+#icono3{
+	float: left;
+}
+
+
+
